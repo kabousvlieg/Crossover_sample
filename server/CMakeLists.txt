@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(client)
+project(server)
 
 set(CMAKE_VERBOSE_MAKEFILE off)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall")
@@ -22,7 +22,7 @@ else()
 endif()
 
 #set(CMAKE_EXE_LINKER_FLAGS "-lboost_log -lboost_system -lboost_filesystem -lboost_date_time -lboost_thread -L${Boost_ROOT}/boost/")
-set(SOURCE_FILES main.cpp os.h monitor.cpp monitor.h)
-add_executable(client ${SOURCE_FILES})
-#target_link_libraries (client ${Boost_LIBRARIES})
-target_link_libraries (client boost_log boost_system boost_filesystem boost_date_time boost_thread)
+set(SOURCE_FILES main.cpp)
+add_executable(server ${SOURCE_FILES})
+#target_link_libraries (server ${Boost_LIBRARIES})
+target_link_libraries (server boost_log boost_system boost_filesystem boost_date_time boost_thread)
