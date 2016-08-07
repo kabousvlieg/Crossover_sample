@@ -3,6 +3,7 @@ project(client)
 
 set(CMAKE_VERBOSE_MAKEFILE off)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/bin")
 
 SET (BOOST_ROOT "C:/MinGW/include/")
 SET (BOOST_INCLUDEDIR "C:/MinGW/include/")
@@ -22,7 +23,7 @@ else()
 endif()
 
 #set(CMAKE_EXE_LINKER_FLAGS "-lboost_log -lboost_system -lboost_filesystem -lboost_date_time -lboost_thread -L${Boost_ROOT}/boost/")
-set(SOURCE_FILES main.cpp os.h monitor.cpp monitor.h)
+set(SOURCE_FILES main.cpp os.h monitor.cpp monitor.h tcpIpClient.cpp tcpIpClient.h)
 add_executable(client ${SOURCE_FILES})
 #target_link_libraries (client ${Boost_LIBRARIES})
-target_link_libraries (client boost_log boost_system boost_filesystem boost_date_time boost_thread)
+target_link_libraries (client boost_log boost_system boost_filesystem boost_date_time boost_thread ws2_32)
